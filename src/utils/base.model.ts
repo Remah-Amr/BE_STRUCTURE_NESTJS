@@ -6,6 +6,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
     getters: true,
     virtuals: true,
     transform: (_, doc: Record<string, unknown>) => {
+      console.log(doc) // non-reachable here !!
       delete doc.__v;
       delete doc._id;
       return {

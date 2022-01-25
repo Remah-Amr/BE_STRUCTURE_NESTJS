@@ -9,6 +9,8 @@ import { DatabaseModule } from './database.module';
 import { ChatModule } from './chat/chat.module';
 import { ClassesModule } from './classes/classes.module';
 import { CoursesModule } from './courses/courses.module';
+import { UnitsModule } from './units/units.module';
+import { LessonsModule } from './lessons/lessons.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -19,6 +21,8 @@ import { CoursesModule } from './courses/courses.module';
     ChatModule,
     ClassesModule,
     CoursesModule,
+    UnitsModule,
+    LessonsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

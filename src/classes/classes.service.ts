@@ -3,17 +3,19 @@ import {
   NotFoundException,
   UnprocessableEntityException,
 } from '@nestjs/common';
-import { ClassDocument } from './models/class.model';
+import { Class, ClassDocument } from './models/class.model';
 import { ClassRepository } from './class.repository';
 import { CreateClassDto } from './dto/create-class.dto';
 import { UpdateClassDto } from './dto/update-class.dto';
-import { FilterQuery } from 'mongoose';
+import { CreateQuery, FilterQuery } from 'mongoose';
 
 @Injectable()
 export class ClassesService {
   constructor(private readonly ClassRepository: ClassRepository) {}
   async create({ names }: CreateClassDto): Promise<ClassDocument> {
-    return await this.ClassRepository.createDoc({ names });
+    return await this.ClassRepository.create({
+      names,
+    } as CreateQuery<ClassDocument>);
   }
 
   findAll() {

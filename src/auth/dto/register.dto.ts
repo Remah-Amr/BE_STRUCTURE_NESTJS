@@ -5,7 +5,7 @@ import {
   IsString,
   Matches,
 } from 'class-validator';
-import { Constants } from '../../utils/constants';
+import { Constants } from 'src/utils/constants';
 export class RegisterDto {
   @IsString()
   @IsNotEmpty()

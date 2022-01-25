@@ -6,13 +6,9 @@ import {
   BadRequestException,
 } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
-import { LoginDto } from './dto/login.dto';
-import { RegisterDto } from './dto/register.dto';
 import * as jwt from 'jsonwebtoken';
 import TokenPayload from './interfaces/tokenPayload.interface';
-import { LoginGoogleDto } from './dto/login-google.dto';
 import { User, UserDocument } from 'src/users/models/_user.model';
-import { LoginFacebookDto } from './dto/login-facebook.dto';
 import axios from 'axios';
 import { ConfigService } from '@nestjs/config';
 import { UserNotFoundException } from 'src/users/exceptions/userNotFound.exception';
@@ -20,6 +16,9 @@ import { JwtService } from '@nestjs/jwt';
 import { StudentDocument } from 'src/users/models/student.model';
 import { CreateQuery, FilterQuery } from 'mongoose';
 import { UserRepository } from 'src/users/users.repository';
+import { LoginDto } from './dto/login.dto';
+import { LoginFacebookDto } from './dto/login-facebook.dto';
+import { RegisterDto } from './dto/register.dto';
 
 @Injectable()
 export class AuthService {
