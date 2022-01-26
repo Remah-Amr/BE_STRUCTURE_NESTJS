@@ -13,22 +13,22 @@
 # Relations :
 - explain all models , note : validation ok in course.model file
 - in courseModel I put Record like in docs, but in dto I put class to validate it,
-- in relation if you put string , class , classOrString => explain
+$ in relation if you put string , class , classOrString => explain
 - note that some people when use class not classDocument , they extended Document in that class
 
 
 # SWAGGER :
 - 'make sure emeded classes at nested schemas appear in swagger'
 - explain disadvantage of raw() in model becuase you can't take advantage to swagger by ref model
-- handle function swagger for pagination or not $change in master$ 
-- handle function with all cases 
+$ handle function swagger for pagination or not $change in master$ 
+$ handle function with all cases 
 - explain apihideProperty with default value case 'like seen , unseen', => 
     @apihideProperty()
     status:enum = enum.seen
-- handle in return profile if return user + (student OR teacher)
+$ handle in return profile if return user + (student OR teacher)
 - validation on subschema is applied ?
-- send image with object Or array 'in create class' with swagger
-
+$ send image with object Or array 'in create class' with swagger
+- explain function you created with autocomplete
 
 # Structure : 
 -  when naming make name of classes you create like dto, model,.. Single , also make name of model & repo files single , rest of files make it plural ,
@@ -49,6 +49,7 @@
 - note to pick/omit work successfully
 
 - explain findall in units if you return only no paginated response and you want to use  findAllWithPaginationOption in Base
+- also explain paramater of function in that case
 
 - explain create lesson
 
@@ -56,11 +57,13 @@
 
 - explain new decorator in dto + refer to class-validator docs
 
-- $addToSet & Push with updateOne not work
+$ $addToSet & Push with updateOne not work
 
 - note that some people when use class not classDocument , they extended Document in class
 
 - when update class , update all related names 'explain your idea'
+
+- explain idea of convert params to query in find 'easier , no need to create more classes'
 
 - explain steps :
     model
