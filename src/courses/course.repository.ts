@@ -10,6 +10,7 @@ import {
 import { BaseAbstractRepository } from 'src/utils/base.abstract.repository';
 import { Course, CourseDocument } from './models/course.model';
 import * as _ from 'lodash';
+import * as moment from 'moment';
 
 @Injectable()
 export class CourseRepository extends BaseAbstractRepository<Course> {
@@ -32,7 +33,15 @@ export class CourseRepository extends BaseAbstractRepository<Course> {
     delete filters['class'];
     filters['teacher'] && (filters['teacher.id'] = filters['teacher']);
     delete filters['teacher'];
-    // console.log(filters);
+    filters['from'] &&
+      filters['to'] &&
+      (filters['$and'] = [
+        { createdAt: { $gt: moment(filters['from']).utc().toDate() } },
+        { createdAt: { $lt: moment(filters['to']).utc().toDate() } },
+      ]);
+    delete filters['from'];
+    delete filters['to'];
+    console.log(filters);
     const options: PaginateOptions = _.pick(queryFiltersAndOptions, [
       'page',
       'limit',

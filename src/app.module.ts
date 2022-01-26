@@ -11,6 +11,8 @@ import { ClassesModule } from './classes/classes.module';
 import { CoursesModule } from './courses/courses.module';
 import { UnitsModule } from './units/units.module';
 import { LessonsModule } from './lessons/lessons.module';
+import { ExamsModule } from './exams/exams.module';
+import { QuestionsModule } from './questions/questions.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -23,6 +25,8 @@ import { LessonsModule } from './lessons/lessons.module';
     CoursesModule,
     UnitsModule,
     LessonsModule,
+    ExamsModule,
+    QuestionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

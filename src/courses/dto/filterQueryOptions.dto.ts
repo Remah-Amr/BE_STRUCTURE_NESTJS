@@ -1,4 +1,10 @@
-import { isMongoId, IsMongoId, IsOptional } from 'class-validator';
+import {
+  IsDate,
+  IsDateString,
+  isMongoId,
+  IsMongoId,
+  IsOptional,
+} from 'class-validator';
 import { Transform } from 'class-transformer';
 import { escapeRegExp } from 'lodash';
 import { PaginationParams } from 'src/utils/pagination/paginationParams.dto';
@@ -12,6 +18,14 @@ export class FilterQueryCourse {
   @IsOptional()
   @IsMongoId()
   class?: string;
+
+  @IsOptional()
+  @IsDate()
+  from?: Date;
+
+  @IsOptional()
+  @IsDate()
+  to?: Date;
 }
 
 export class FilterQueryOptionsCourse extends IntersectionType(

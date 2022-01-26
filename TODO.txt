@@ -1,0 +1,47 @@
+- Transactions ' when delete class , delete all related '
+- when update class , update all related names
+- Generate Reports in Background in subscriptions
+- Handle search , text index OR elastic
+- Handle Claims 'Permissions Page'
+- Read To write ratio in exam's questions
+- Explain how to 'draw screen' by 2 group
+- explain admin idea
+- Notifications
+- VIDEO (
+refer to plural in whole class folder see mongoSection and typegoose , also link you saved 'no specific way to do that',
+rename paramsOrQueryWithId to paramsWithId, => DONE
+File base.repository => DONE
+BaseModel ?, => DONE , use it with unit
+try raw or other with class,
+explain course.model file => validation OK with raw,
+id,createdAt,updatedAt in schema not important => its only for swagger,
+return in delete ? 'but what if throw error',
+in courseModel I put Record like in docs, but in dto I put class to validate,
+Pick & omit,
+swagger 3 'make sure emeded classes appear in swagger' , explain disadvantage of raw() related to swagger, handle function swagger for pagination or not , handle function with all cases , explain hideProperty with default value,handle in return profile if return user + (student OR teacher)
+video relations 2
+explain findall in units
+explain unit with extends baseModel , not read toJSON()
+if you replace id with className in relation
+create lesson very important 'students & threshold optional'
+Gaurds in ts
+validation on subschema
+send image with object/array
+refer to class-validator docs
+$addToSet & Push ?
+note that some people when use class not classDocument , they extended Document in class
+remove optional in master from id in paramsWithId
+refactor all code
+)
+
+
+steps:
+model
+repository
+module
+dto
+service
+controller
+repository
+swagger tags on conctroller
+in case of fetchAll then add file filterQueryOptions in dto folder

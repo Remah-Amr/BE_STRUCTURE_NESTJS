@@ -7,6 +7,9 @@ export type StudentDocument = Student & Document;
 @Schema()
 export class Student {
   role: UserRole;
+
+  @Prop({ type: String })
+  test?: string;
 }
 
 const StudentSchema = SchemaFactory.createForClass(Student);

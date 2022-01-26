@@ -40,6 +40,7 @@
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
+    "moment": "^2.29.1",
     "mongoose": "^6.0.13",
     "mongoose-aggregate-paginate-v2": "^1.0.5",
     "mongoose-auto-increment": "^5.0.1",

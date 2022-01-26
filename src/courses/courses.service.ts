@@ -59,7 +59,7 @@ export class CoursesService {
   ): Promise<PaginateResult<CourseDocument> | CourseDocument[]> {
     const users = await this.courseRepository.findAllWithPaginationOption(
       queryFiltersAndOptions,
-      ['teacher', 'class'],
+      ['teacher', 'class', 'from', 'to'],
       { populate: ['class.id', 'teacher.id'] },
     );
     return users;

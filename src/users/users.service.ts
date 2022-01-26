@@ -31,7 +31,7 @@ export class UsersService {
   ): Promise<PaginateResult<UserDocument> | UserDocument[]> {
     const users = await this.userRepository.findAllWithPaginationOption(
       queryFiltersAndOptions,
-      ['username'],
+      ['username', 'role'],
     );
     return users;
   }

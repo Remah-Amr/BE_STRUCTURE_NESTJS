@@ -1,5 +1,6 @@
 import { Type } from 'class-transformer';
-import { ValidateNested } from 'class-validator';
+import { IsString, Validate, ValidateNested } from 'class-validator';
+import { ModelAnswerType } from 'src/questions/customValidation';
 import { IsNonPrimitiveArray } from 'src/utils/customValidationDecorator';
 import { addNameDto } from './add-names.dto';
 
