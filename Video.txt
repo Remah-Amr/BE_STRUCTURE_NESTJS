@@ -1,0 +1,80 @@
+# How To Model Your DB :
+- explain Read To write ratio in exam's questions => 
+  Rule 5 here : https://www.mongodb.com/developer/article/mongodb-schema-design-best-practices/ 
+  https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-2 => search on frequent , ratio 
+
+
+# Bassthalk 3 :
+- Explain how to 'draw screen in bassthalk' by 2 groups pipelines
+
+# Creation Of Admin Idea :
+- explain admin idea
+
+# Relations :
+- explain all models , note : validation ok in course.model file
+- in courseModel I put Record like in docs, but in dto I put class to validate it,
+- in relation if you put string , class , classOrString => explain
+- note that some people when use class not classDocument , they extended Document in that class
+
+
+# SWAGGER :
+- 'make sure emeded classes at nested schemas appear in swagger'
+- explain disadvantage of raw() in model becuase you can't take advantage to swagger by ref model
+- handle function swagger for pagination or not $change in master$ 
+- handle function with all cases 
+- explain apihideProperty with default value case 'like seen , unseen', => 
+    @apihideProperty()
+    status:enum = enum.seen
+- handle in return profile if return user + (student OR teacher)
+- validation on subschema is applied ?
+- send image with object Or array 'in create class' with swagger
+
+
+# Structure : 
+-  when naming make name of classes you create like dto, model,.. Single , also make name of model & repo files single , rest of files make it plural ,
+   see mongo in nest docs , typegoose , https://github.dev/angular-university/nestjs-course/tree/master/rest-api/src , 'no specific way to do that',
+ 
+- Note to reason of : rename paramsOrQueryWithId to paramsWithId , also make attributes required not optional $change in master$
+
+- explain base.repository.ts 
+
+- explain BaseModel usage with limitations (no read toJson(),also must put @schema in child)
+
+- id,createdAt,updatedAt in schema not important => its only for swagger 
+
+- refer to lesson schema with optional attributes
+
+- note to startSolution in exams.service when return nothing , and explain if you remove return , then you throw error it will works incorrectly
+
+- note to pick/omit work successfully
+
+- explain findall in units if you return only no paginated response and you want to use  findAllWithPaginationOption in Base
+
+- explain create lesson
+
+- refer to Gaurds in ts , ? , ! 
+
+- explain new decorator in dto + refer to class-validator docs
+
+- $addToSet & Push with updateOne not work
+
+- note that some people when use class not classDocument , they extended Document in class
+
+- when update class , update all related names 'explain your idea'
+
+- explain steps :
+    model
+    repository
+    module
+    dto
+    service
+    controller
+    swagger tags on conctroller
+    in case of fetchAll then add file filterQueryOptions in dto folder
+
+
+# General :
+- refactor all code
+
+
+
