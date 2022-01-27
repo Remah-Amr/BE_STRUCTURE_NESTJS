@@ -76,8 +76,11 @@ export abstract class BaseAbstractRepository<T> {
     filterQuery: FilterQuery<TDocument<T>>,
     updateQuery: UpdateQuery<TDocument<T>>,
     options: QueryOptions = {},
+    projection: any = {},
   ): Promise<TDocument<T>> {
-    const doc = await this.model.findOne(filterQuery).setOptions(options);
+    const doc = await this.model
+      .findOne(filterQuery, projection)
+      .setOptions(options);
     if (!doc) throw new NotFoundException(`${this.model.modelName} not found`);
     await doc.set(updateQuery).save();
     return doc;
