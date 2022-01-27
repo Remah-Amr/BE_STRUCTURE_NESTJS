@@ -29,6 +29,7 @@
 - in relation if you put string , class , classOrString => explain (make type string , if you need make union type like at unit.model)
 - note that some people when use class not classDocument , they extended Document in that class
 - toJSON()
+- validation on subschema is applied ?
 
 # Bassthalk_NEST
 - explain cycle , with limitations (like no search for id send to make sure)
@@ -97,14 +98,14 @@
 # SWAGGER :
 - 'make sure emeded classes at nested schemas appear in swagger'
 - explain disadvantage of raw() in model becuase you can't take advantage to swagger by ref model
-$ handle function swagger for pagination or not $change in master$ 
-$ handle function with all cases 
+- handle function swagger for pagination or not $change in master$ , refer to :https://docs.nestjs.com/openapi/types-and-parameters#oneof-anyof-allof
+- handle function with all cases , https://docs.nestjs.com/openapi/operations#responses
 - explain apihideProperty with default value case 'like seen , unseen', => 
     @apihideProperty()
     status:enum = enum.seen
-$ handle in return profile if return user + (student OR teacher)
-- validation on subschema is applied ?
-$ send image with object Or array 'in create class' with swagger
+- handle in return profile if return user + (student OR teacher)
+$ send image with object Or array 'in create class' with swagger , https://github.com/scottie1984/swagger-ui-express/issues/57
 - explain function you created with autocomplete
-
-
+- refer to steps
+- note to more enhance like send status with ApiResponse 
+- https://swagger.io/

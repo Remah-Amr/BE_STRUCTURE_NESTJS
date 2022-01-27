@@ -25,16 +25,16 @@ async function bootstrap() {
   app.use(logger('dev'));
   app.enableCors();
   app.use(helmet());
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true,
-      forbidNonWhitelisted: true,
-      transform: true,
-      transformOptions: {
-        enableImplicitConversion: true,
-      },
-    }),
-  );
+  // app.useGlobalPipes(
+  //   new ValidationPipe({
+  //     whitelist: true,
+  //     forbidNonWhitelisted: true,
+  //     transform: true,
+  //     transformOptions: {
+  //       enableImplicitConversion: true,
+  //     },
+  //   }),
+  // );
   app.useGlobalFilters(new AllExceptionsFilter());
   // swagger config
   const options = new DocumentBuilder()
@@ -52,6 +52,7 @@ async function bootstrap() {
     extraModels: [
       PaginatedDto,
       User,
+      Student,
       Course,
       Name,
       Class,

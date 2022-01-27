@@ -30,7 +30,7 @@ import ParamsWithId from 'src/utils/paramsWithId.dto';
 import { Public } from 'src/auth/decorators/public.decorator';
 import { FilterQuery, PaginateResult } from 'mongoose';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
-import { ApiPaginatedResponse } from 'src/utils/pagination/apiPaginatedResponse';
+import { ApiOkResponseGeneral } from 'src/utils/pagination/ApiOkResponseGeneral';
 import { Student } from './models/student.model';
 import { Teacher } from './models/teacher.model';
 import { FilterQueryOptionsUser } from './dto/filterQueryOptions.dto';
@@ -45,7 +45,7 @@ export class UsersController {
   ) {}
 
   @Roles(UserRole.STUDENT)
-  @ApiPaginatedResponse(User)
+  @ApiOkResponseGeneral(User, Student, false)
   @Get()
   async findAll(
     @Query() queryFiltersAndOptions: FilterQueryOptionsUser,
@@ -92,9 +92,7 @@ export class UsersController {
 
   @Public()
   @Get(':id')
-  async fetchUserById(
-    @Param() { id }: ParamsWithId,
-  ): Promise<UserDocument> {
+  async fetchUserById(@Param() { id }: ParamsWithId): Promise<UserDocument> {
     return await this.usersService.findOne({
       _id: id,
     } as FilterQuery<UserDocument>);

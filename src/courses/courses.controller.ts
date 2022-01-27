@@ -17,7 +17,7 @@ import { FilterQuery, PaginateResult } from 'mongoose';
 import { Class } from 'src/classes/models/class.model';
 import { Name } from 'src/classes/models/name.model';
 import { User } from 'src/users/models/_user.model';
-import { ApiPaginatedResponse } from 'src/utils/pagination/apiPaginatedResponse';
+import { ApiOkResponseGeneral } from 'src/utils/pagination/ApiOkResponseGeneral';
 import PaginatedDto from 'src/utils/pagination/paginated.dto';
 import ParamsWithId from 'src/utils/paramsWithId.dto';
 import { CoursesService } from './courses.service';
