@@ -13,6 +13,7 @@ export class Name {
   @Prop({
     required: true,
     type: String,
+    index:true
   })
   value: string;
 }

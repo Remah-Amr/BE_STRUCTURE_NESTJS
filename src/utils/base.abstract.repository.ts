@@ -33,8 +33,11 @@ export abstract class BaseAbstractRepository<T> {
   public async findOne(
     filterQuery: FilterQuery<TDocument<T>>,
     options: QueryOptions = {},
+    projection: any = {},
   ): Promise<TDocument<T>> {
-    const doc = await this.model.findOne(filterQuery).setOptions(options);
+    const doc = await this.model
+      .findOne(filterQuery, projection)
+      .setOptions(options);
     return doc;
   }
 

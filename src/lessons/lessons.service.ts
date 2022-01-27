@@ -48,4 +48,8 @@ export class LessonsService {
   ): Promise<LessonDocument> {
     return this.lessonRepository.fetchLessonToStudent(id, studentId);
   }
+
+  async testFetchOne() {
+    return this.lessonRepository.findOne({}, {}, { course: 1 });
+  }
 }

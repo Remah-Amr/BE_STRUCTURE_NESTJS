@@ -37,7 +37,12 @@ export class LessonsController {
   ): Promise<void> {
     return this.lessonsService.addStudentToLesson(id, me.id);
   }
-
+  
+  @Get('test')
+  testFetchOne(): Promise<LessonDocument> {
+    return this.lessonsService.testFetchOne();
+  }
+  
   @Get(':id')
   fetchLessonToStudent(
     @Param() { id }: ParamsWithId,
@@ -45,4 +50,5 @@ export class LessonsController {
   ): Promise<LessonDocument> {
     return this.lessonsService.fetchLessonToStudent(id, me.id);
   }
+
 }

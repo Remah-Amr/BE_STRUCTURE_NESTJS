@@ -3,11 +3,11 @@ import { IsMongoId, IsOptional } from 'class-validator';
 class addAnswerParams {
   @IsOptional()
   @IsMongoId()
-  questionid?: string;
+  questionid: string;
 
   @IsOptional()
   @IsMongoId()
-  examid?: string;
+  examid: string;
 }
 
 export default addAnswerParams;

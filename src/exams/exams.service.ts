@@ -47,6 +47,11 @@ export class ExamsService {
       type,
     );
 
+    // await this.solutionRepository.updateOne(
+    //   {},
+    //   { questions: [{ question: qid, type: 'choose', answer: 'OK' }] },
+    // );
+
     return;
   }
 
@@ -64,7 +69,7 @@ export class ExamsService {
       solutionObj[q.question.id] = q;
     });
     exam = exam.toJSON();
-    exam.hhh = 'hhh'
+    exam.hhh = 'hhh';
     for (let i = 0; i < exam.questions.length; i++) {
       let q = exam.questions[i];
       // exam.questions[i] = exam.questions[i].toJSON();

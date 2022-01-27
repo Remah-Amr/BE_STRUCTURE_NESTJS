@@ -1,11 +1,24 @@
 # How To Model Your DB :
 - explain Read To write ratio in exam's questions => 
-  Rule 5 here : https://www.mongodb.com/developer/article/mongodb-schema-design-best-practices/ 
+  Rule 5 here : 
   https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-2 => search on frequent , ratio 
+- compound index + idea of fetch lesson with didStudy
 
 
 # Bassthalk 3 :
 - Explain how to 'draw screen in bassthalk' by 2 groups pipelines
+
+{
+  $group:{
+    _id:'$user',   [{user:'remah',points:3},{user:'hamoda',points:2}]
+    points: { $sum: '$point'}
+  },
+  $group:{
+    _id: '$points', [{_id:55,numOfUsers:3},{},{}]
+    numOfUsers: { $sum:1}
+  }
+}
+
 
 # Creation Of Admin Idea :
 - explain admin idea
@@ -15,20 +28,10 @@
 - in courseModel I put Record like in docs, but in dto I put class to validate it,
 - in relation if you put string , class , classOrString => explain (make type string , if you need make union type like at unit.model)
 - note that some people when use class not classDocument , they extended Document in that class
+- toJSON()
 
-
-# SWAGGER :
-- 'make sure emeded classes at nested schemas appear in swagger'
-- explain disadvantage of raw() in model becuase you can't take advantage to swagger by ref model
-$ handle function swagger for pagination or not $change in master$ 
-$ handle function with all cases 
-- explain apihideProperty with default value case 'like seen , unseen', => 
-    @apihideProperty()
-    status:enum = enum.seen
-$ handle in return profile if return user + (student OR teacher)
-- validation on subschema is applied ?
-$ send image with object Or array 'in create class' with swagger
-- explain function you created with autocomplete
+# Bassthalk_NEST
+- explain cycle , with limitations (like no search for id send to make sure)
 
 # Structure : 
 -  when naming make name of classes you create like dto, model,.. Single , also make name of model & repo files single , rest of files make it plural ,
@@ -36,7 +39,6 @@ $ send image with object Or array 'in create class' with swagger
  
 - Note to reason of : rename paramsOrQueryWithId to paramsWithId , also make attributes required not optional 
 
-- explain base.repository.ts 
 
 - explain BaseModel usage with limitations (no read toJson(),also must put @schema in child)
 
@@ -63,19 +65,46 @@ $ send image with object Or array 'in create class' with swagger
 
 - explain idea of convert params to query in find 'easier , no need to create more classes'
 
+- fetch all courses repo
+
+- explain 2 methods of permissions
+
+- explain file params  in dto/exams
+
+
+- params of createRepo & updateRepo
+- explain base.repository.ts 
+$ handle select in update and test , see if you must select in updateOneVoid ?
+- dont forget to add multerModule if going to upoload files
+
+
 - explain steps :
     model
     repository
     module
     dto
-    service
-    controller
+    service -> 
+    controller -> 
+    return types
     swagger tags on conctroller
     in case of fetchAll then add file filterQueryOptions in dto folder
-
+    SWAGGER with all cases
 
 # General :
 - refactor all code
 
+
+# SWAGGER :
+- 'make sure emeded classes at nested schemas appear in swagger'
+- explain disadvantage of raw() in model becuase you can't take advantage to swagger by ref model
+$ handle function swagger for pagination or not $change in master$ 
+$ handle function with all cases 
+- explain apihideProperty with default value case 'like seen , unseen', => 
+    @apihideProperty()
+    status:enum = enum.seen
+$ handle in return profile if return user + (student OR teacher)
+- validation on subschema is applied ?
+$ send image with object Or array 'in create class' with swagger
+- explain function you created with autocomplete
 
 
