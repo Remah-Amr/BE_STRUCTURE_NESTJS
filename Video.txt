@@ -13,9 +13,9 @@
 # Relations :
 - explain all models , note : validation ok in course.model file
 - in courseModel I put Record like in docs, but in dto I put class to validate it,
-$ in relation if you put string , class , classOrString => explain
+- in relation if you put string , class , classOrString => explain (make type string , if you need make union type like at unit.model)
 - note that some people when use class not classDocument , they extended Document in that class
-`
+
 
 # SWAGGER :
 - 'make sure emeded classes at nested schemas appear in swagger'
