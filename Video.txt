@@ -74,9 +74,9 @@
 
 - params of createRepo & updateRepo
 - explain base.repository.ts 
-$ handle select in update and test , see if you must select in updateOneVoid ?
+- handle select in update and test , see if you must select in updateOneVoid ?
 - dont forget to add multerModule if going to upoload files
-
+- explain routing
 
 - explain steps :
     model
