@@ -79,4 +79,12 @@ export abstract class BaseAbstractRepository<T> {
     await doc.set(updateQuery).save();
     return doc;
   }
+
+  public async updateOneVoid(
+    filterQuery: FilterQuery<TDocument<T>>,
+    updateQuery: UpdateQuery<TDocument<T>>,
+    options: QueryOptions = {},
+  ): Promise<void> {
+    await this.model.updateOne(filterQuery, updateQuery);
+  }
 }

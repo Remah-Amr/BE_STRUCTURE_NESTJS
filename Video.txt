@@ -15,7 +15,7 @@
 - in courseModel I put Record like in docs, but in dto I put class to validate it,
 $ in relation if you put string , class , classOrString => explain
 - note that some people when use class not classDocument , they extended Document in that class
-
+`
 
 # SWAGGER :
 - 'make sure emeded classes at nested schemas appear in swagger'
@@ -34,7 +34,7 @@ $ send image with object Or array 'in create class' with swagger
 -  when naming make name of classes you create like dto, model,.. Single , also make name of model & repo files single , rest of files make it plural ,
    see mongo in nest docs , typegoose , https://github.dev/angular-university/nestjs-course/tree/master/rest-api/src , 'no specific way to do that',
  
-- Note to reason of : rename paramsOrQueryWithId to paramsWithId , also make attributes required not optional $change in master$
+- Note to reason of : rename paramsOrQueryWithId to paramsWithId , also make attributes required not optional 
 
 - explain base.repository.ts 
 
@@ -56,8 +56,6 @@ $ send image with object Or array 'in create class' with swagger
 - refer to Gaurds in ts , ? , ! 
 
 - explain new decorator in dto + refer to class-validator docs
-
-$ $addToSet & Push with updateOne not work
 
 - note that some people when use class not classDocument , they extended Document in class
 
