@@ -1,4 +1,4 @@
-- Transactions ' when delete class , delete all related '
+- Transactions ' when delete class , delete all related ' => see wanago
 - when update class , update all related names
 - Generate Reports in Background in subscriptions
 - Handle search , text index OR elastic
