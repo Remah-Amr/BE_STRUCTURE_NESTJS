@@ -18,8 +18,9 @@ import { ConfigService } from '@nestjs/config';
 import { UserNotFoundException } from 'src/users/exceptions/userNotFound.exception';
 import { JwtService } from '@nestjs/jwt';
 import { StudentDocument } from 'src/users/models/student.model';
-import { CreateQuery, FilterQuery } from 'mongoose';
+import { CreateQuery, FilterQuery, Model, Connection } from 'mongoose';
 import { UserRepository } from 'src/users/users.repository';
+import { InjectConnection, InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class AuthService {
@@ -27,6 +28,8 @@ export class AuthService {
     private readonly userRepository: UserRepository,
     private readonly configService: ConfigService,
     private readonly jwtService: JwtService,
+    @InjectModel(User.name) private userModel: Model<UserDocument>,
+    @InjectConnection() private readonly connection: Connection,
   ) {}
 
   async register(registerationData: RegisterDto): Promise<StudentDocument> {
@@ -113,6 +116,59 @@ export class AuthService {
       return user;
     } catch (err) {
       return false;
+    }
+  }
+
+  async testTransaction() {
+    const session = await this.connection.startSession();
+
+    session.startTransaction({
+      readConcern: { level: 'snapshot' },
+      writeConcern: { w: 'majority' },
+    });
+    let user;
+    try {
+      // await this.userModel.deleteMany();
+      user = await this.userModel.find().session(session);
+      await session.commitTransaction();
+    } catch (error) {
+      await session.abortTransaction();
+      throw error;
+    } finally {
+      await session.endSession();
+    }
+    return user;
+  }
+
+  async testTransaction2() {
+    const session = await this.connection.startSession();
+
+    session.startTransaction({
+      readConcern: { level: 'snapshot' },
+      writeConcern: { w: 'majority' },
+    });
+    try {
+      let user = await this.userModel.create(
+        [
+          {
+            username: 'remah',
+            role: 'student',
+          },
+        ],
+        { session: session },
+      );
+
+      console.log('after insert');
+      for (let i = 0; i < 100; i++) {
+        await this.userModel.findOne().session(session);
+      }
+      console.log('after loop');
+      await session.commitTransaction();
+    } catch (error) {
+      await session.abortTransaction();
+      throw error;
+    } finally {
+      await session.endSession();
     }
   }
 }

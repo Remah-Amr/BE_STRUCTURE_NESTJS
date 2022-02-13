@@ -97,4 +97,16 @@ export class AuthController {
       { password } as UpdateUserDto,
     );
   }
+
+  @Public()
+  @Post('transaction')
+  async testTransaction(){
+    return await this.authService.testTransaction()
+  }
+
+  @Public()
+  @Post('transaction2')
+  async testTransaction2(){
+    return await this.authService.testTransaction2()
+  }
 }

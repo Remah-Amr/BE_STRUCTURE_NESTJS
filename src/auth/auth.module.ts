@@ -9,9 +9,17 @@ import { RolesGuard } from './guards/roles.guard';
 import { GoogleOauthStrategy } from './strategies/googleStrategy.passport';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
+import { MongooseModule } from '@nestjs/mongoose';
+import { User, UserSchema } from 'src/users/models/_user.model';
 
 @Module({
   imports: [
+    MongooseModule.forFeature([
+      {
+        name: User.name,
+        schema: UserSchema,
+      },
+    ]),
     UsersModule,
     PhoneConfirmationModule,
     ConfigModule,
